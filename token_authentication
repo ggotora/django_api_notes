@@ -1,0 +1,40 @@
+
+1. ```views.py```
+```python 
+@api_view()
+@permission_classes([IsAuthenticated])
+def secret(request):
+    return Response({'message': 'secret message'})
+```
+2. ```urls.py```
+```python
+path('secret', views.secret), 
+```
+
+3. ``` setting.py```
+
+```python 
+INSTALLED_APPS = [ 
+...
+'rest_framework.authtoken'
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES' : [
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}
+
+```
+
+## To create a view that generates tokens
+1. ```app urls.py```
+
+```python
+    from rest_framework.authtoken.views import obtain_auth_token
+
+urlpatterns = [
+    path('api-token', obtain_auth_token, name='api-token'), 
+]
+```
+ 
