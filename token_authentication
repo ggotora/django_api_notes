@@ -1,5 +1,5 @@
 
-1. `views.py`
+1. ```views.py```
 ```python 
 @api_view()
 @permission_classes([IsAuthenticated])
@@ -37,4 +37,3 @@ urlpatterns = [
     path('api-token', obtain_auth_token, name='api-token'), 
 ]
 ```
- 
